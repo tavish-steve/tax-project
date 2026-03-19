@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tax Calculator</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Tax Calculator</h1>
+
+      <form id="taxForm" class="mb-4">
+        <div class="mb-3">
+          <label for="basicSalary" class="form-label">Basic Salary</label>
+          <input
+            type="number"
+            class="form-control"
+            id="basicSalary"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="benefits" class="form-label">Benefits</label>
+          <input
+            type="number"
+            class="form-control"
+            id="benefits"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Calculate</button>
+      </form>
+
+      <div id="results"></div>
+
+      <table class="table table-bordered mt-4">
+        <thead>
+          <tr>
+            <th scope="col">Column 1</th>
+            <th scope="col">Column 2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Row 1</td>
+            <td>Data 1</td>
+          </tr>
+          <tr>
+            <td>Row 2</td>
+            <td>Data 2</td>
+          </tr>
+          <tr>
+            <td>Row 3</td>
+            <td>Data 3</td>
+          </tr>
+          <tr>
+            <td>Row 4</td>
+            <td>Data 4</td>
+          </tr>
+          <tr>
+            <td>Row 5</td>
+            <td>Data 5</td>
+          </tr>
+          <tr>
+            <td>Row 6</td>
+            <td>Data 6</td>
+          </tr>
+          <tr>
+            <td>Row 7</td>
+            <td>Data 7</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="tax.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+
