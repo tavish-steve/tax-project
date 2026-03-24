@@ -15,13 +15,13 @@
     <div class="container mt-5">
       <h1>Tax Calculator</h1>
 
-      <form id="taxForm" class="mb-4">
+      <form id="taxform" class="mb-4">
         <div class="mb-3">
           <label for="basicSalary" class="form-label">Basic Salary</label>
           <input
             type="number"
             class="form-control"
-            id="basicSalary"
+            id="basic"
             required
           />
         </div>
@@ -37,43 +37,43 @@
         <button type="submit" class="btn btn-primary">Calculate</button>
       </form>
 
-      <div id="results"></div>
+      <div id="results" class="alert alert-info"></div>
 
       <table class="table table-bordered mt-4">
         <thead>
           <tr>
-            <th scope="col">Column 1</th>
-            <th scope="col">Column 2</th>
+            <th scope="col">TAX CATEGORY</th>
+            <th scope="col">TAX VALUE</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Row 1</td>
-            <td>Data 1</td>
+            <td>Gross Salary</td>
+            <td id="gross"></td>
           </tr>
           <tr>
-            <td>Row 2</td>
-            <td>Data 2</td>
+            <td>NHIF</td>
+            <td id="nhif"></td>
           </tr>
           <tr>
-            <td>Row 3</td>
-            <td>Data 3</td>
+            <td>NSSF</td>
+            <td id="nssf"></td>
           </tr>
           <tr>
-            <td>Row 4</td>
-            <td>Data 4</td>
+            <td>NHDF</td>
+            <td id="nhdf"></td>
           </tr>
           <tr>
-            <td>Row 5</td>
-            <td>Data 5</td>
+            <td><strong>Taxable Income</strong></td>
+            <td id="taxableIncome"></td>
           </tr>
           <tr>
-            <td>Row 6</td>
-            <td>Data 6</td>
+            <td><strong>PAYEE (Tax)</strong></td>
+            <td id="payee"></td>
           </tr>
           <tr>
-            <td>Row 7</td>
-            <td>Data 7</td>
+            <td><strong>Net Pay</strong></td>
+            <td id="netSalary"></td>
           </tr>
         </tbody>
       </table>
