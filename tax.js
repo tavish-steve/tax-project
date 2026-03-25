@@ -1,3 +1,11 @@
+// Format number to Kenyan Shillings with commas
+function formatCurrency(amount) {
+    return amount.toLocaleString('en-KE', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+}
+
 document.getElementById('taxform').addEventListener('submit', function (event) {
     event.preventDefault()
     let basicsalary = Number(document.getElementById('basic').value)
@@ -7,7 +15,7 @@ document.getElementById('taxform').addEventListener('submit', function (event) {
         return basicsalary + benefits
     }
     let gross_salary = calculate_gross(basicsalary, benefits);
-    document.getElementById('gross').innerHTML = gross_salary
+    document.getElementById('gross').innerHTML = formatCurrency(gross_salary)
 
     function calculate_nhif(gross) {
         let nhif;
@@ -49,7 +57,7 @@ document.getElementById('taxform').addEventListener('submit', function (event) {
         return nhif
     }
     let nhif = calculate_nhif(gross_salary)
-    document.getElementById('nhif').innerHTML = nhif;
+    document.getElementById('nhif').innerHTML = formatCurrency(nhif);
 
     function calculate_nssf(gross) {
         let nssf
@@ -61,44 +69,60 @@ document.getElementById('taxform').addEventListener('submit', function (event) {
         return nssf
     }
     let nssf = calculate_nssf(gross_salary)
-    document.getElementById('nssf').innerHTML = nssf;
+    document.getElementById('nssf').innerHTML = formatCurrency(nssf);
 
     function calculate_nhdf(gross) {
         return gross * 0.015
     }
     let nhdf = calculate_nhdf(gross_salary)
-    document.getElementById('nhdf').innerHTML = nhdf;
+    document.getElementById('nhdf').innerHTML = formatCurrency(nhdf);
 
     function calculate_taxable_income(gross, nssf, nhdf, nhif) {
         let taxable_income = gross - (nssf + nhdf + nhif)
+        if (taxable_income < 24001) {
+            return 0
+        }
         return taxable_income
     }
     let taxable_income = calculate_taxable_income(gross_salary, nssf, nhdf, nhif)
-    document.getElementById('taxableIncome').innerHTML = taxable_income;
+    document.getElementById('taxableIncome').innerHTML = formatCurrency(taxable_income);
 
     function calculate_payee(taxable_income) {
         let payee;
         if (taxable_income > 0 && taxable_income <= 24000) {
             payee = taxable_income * 0.10
-        } else if (taxable_income > 24000 && taxable_income <= 40000) {
-            payee = 2400 + (taxable_income - 24000) * 0.15
-        } else if (taxable_income > 40000 && taxable_income <= 60000) {
-            payee = 4800 + (taxable_income - 40000) * 0.20
-        } else if (taxable_income > 60000 && taxable_income <= 90000) {
-            payee = 8800 + (taxable_income - 60000) * 0.25
-        } else if (taxable_income > 90000) {
-            payee = 16300 + (taxable_income - 90000) * 0.30
+        } else if (taxable_income > 24000 && taxable_income <= 32333) {
+            payee = 2400 + (taxable_income - 24000) * 0.25
+        } else if (taxable_income > 32333 && taxable_income <= 500000) {
+            payee = 4483.25 + (taxable_income - 32333) * 0.30
+        } else if (taxable_income > 500000 && taxable_income <= 800000) {
+            payee = 144783.35 + (taxable_income - 500000) * 0.325
+        } else if (taxable_income > 800000) {
+            payee = 242283.35 + (taxable_income - 800000) * 0.35
         } else {
             payee = 0
         }
-        return payee
+        // Personal Relief: KES 2,400.00 per month
+        let personal_relief = 2400
+        let final_payee = payee - personal_relief
+        if (final_payee < 0) {
+            return 0
+        }
+        return final_payee
     }
     let payee = calculate_payee(taxable_income)
-    document.getElementById('payee').innerHTML = payee;
+    document.getElementById('payee').innerHTML = formatCurrency(payee);
 
     function calculate_net_salary(gross, nhif, nhdf, nssf, payee) {
         return gross - (nhif + nhdf + nssf + payee)
     }
     let net_salary = calculate_net_salary(gross_salary, nhif, nhdf, nssf, payee)
-    document.getElementById('netSalary').innerHTML = net_salary;
+    document.getElementById('netSalary').innerHTML = formatCurrency(net_salary);
+
+    // Show results alert
+    const resultsAlert = document.getElementById('results');
+    resultsAlert.classList.remove('d-none');
+    
+    // Scroll to results
+    resultsAlert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 })
