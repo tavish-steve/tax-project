@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deductions Info - Tax Calculator</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+      body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding-bottom: 2rem;
+        padding-top: 80px;
+      }
+      .card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+      .card-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 15px 15px 0 0 !important;
+        padding: 1.5rem;
+      }
+      .back-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        padding: 10px 25px;
+        font-weight: 600;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .back-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <i class="bi bi-calculator-fill me-2"></i>Tax Calculator
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" id="homeLink">
+                <i class="bi bi-house-door me-1"></i>Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#" id="deductionsLink">
+                <i class="bi bi-info-circle me-1"></i>Deductions Info
+              </a>
+            </li>
+          </ul>
+          <span class="navbar-text me-3">
+            <i class="bi bi-info-circle me-1"></i>Kenyan Net Pay Calculator
+          </span>
+          <a class="navbar-text text-light text-decoration-none" href="https://www.kra.go.ke/" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-box-arrow-up-right me-1"></i>iTax
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-4">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-12">
+          <div class="card">
+            <div class="card-header text-center">
+              <h2 class="mb-0">
+                <i class="bi bi-info-circle me-2"></i>Deductions Information
+              </h2>
+              <p class="mb-0 mt-2 opacity-75">Kenyan Payroll Deductions Guide</p>
+            </div>
+            <div class="card-body p-4">
+              <div class="text-center mb-4">
+              </div>
+
+              <p class="lead mb-4">Kenyan payroll deductions are calculated based on your gross salary. Here's how each deduction works:</p>
+              
+              <div class="row g-4">
+                <!-- NHIF Section -->
+                <div class="col-12">
+                  <div class="card border-danger">
+                    <div class="card-header bg-danger text-white">
+                      <h4 class="mb-0"><i class="bi bi-heart-pulse me-2"></i>NHIF - National Hospital Insurance Fund</h4>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="text-danger mb-3">What is NHIF?</h5>
+                      <p>NHIF provides health insurance coverage for Kenyan citizens. It's a mandatory deduction that ensures access to healthcare services at participating medical facilities across Kenya.</p>
+                      
+                      <h5 class="text-danger mb-3 mt-4">Deduction Rates (Based on Gross Salary)</h5>
+                      <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                          <thead class="table-danger">
+                            <tr class="text-center">
+                              <th>Gross Salary Range (KES)</th>
+                              <th>Monthly Deduction (KES)</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr><td>0 - 5,999</td><td>150</td></tr>
+                            <tr><td>6,000 - 7,999</td><td>300</td></tr>
+                            <tr><td>8,000 - 11,999</td><td>400</td></tr>
+                            <tr><td>12,000 - 14,999</td><td>500</td></tr>
+                            <tr><td>15,000 - 19,999</td><td>600</td></tr>
+                            <tr><td>20,000 - 24,999</td><td>750</td></tr>
+                            <tr><td>25,000 - 29,999</td><td>850</td></tr>
+                            <tr><td>30,000 - 34,999</td><td>900</td></tr>
+                            <tr><td>35,000 - 39,999</td><td>950</td></tr>
+                            <tr><td>40,000 - 44,999</td><td>1,000</td></tr>
+                            <tr><td>45,000 - 49,999</td><td>1,100</td></tr>
+                            <tr><td>50,000 - 59,999</td><td>1,200</td></tr>
+                            <tr><td>60,000 - 69,999</td><td>1,300</td></tr>
+                            <tr><td>70,000 - 79,999</td><td>1,400</td></tr>
+                            <tr><td>80,000 - 89,999</td><td>1,500</td></tr>
+                            <tr><td>90,000 - 99,999</td><td>1,600</td></tr>
+                            <tr><td>100,000+</td><td>1,700</td></tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      
+                      <div class="alert alert-info mt-3">
+                        <i class="bi bi-info-circle-fill me-2"></i>
+                        <strong>Note:</strong> NHIF deductions are tax-deductible and reduce your taxable income.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- NSSF Section -->
+                <div class="col-12">
+                  <div class="card border-info">
+                    <div class="card-header bg-info text-white">
+                      <h4 class="mb-0"><i class="bi bi-shield-check me-2"></i>NSSF - National Social Security Fund</h4>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="text-info mb-3">What is NSSF?</h5>
+                      <p>NSSF is a pension scheme that provides retirement benefits to Kenyan workers. It helps employees save for their retirement years and provides benefits in case of disability or death.</p>
+                      
+                      <h5 class="text-info mb-3 mt-4">Contribution Rates</h5>
+                      <table class="table table-bordered">
+                        <thead class="table-info">
+                          <tr class="text-center">
+                            <th>Contributor</th>
+                            <th>Contribution Rate</th>
+                            <th>Maximum Amount</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><strong>Employee</strong></td>
+                            <td>6% of pensionable pay</td>
+                            <td>KES 1,080/month</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Employer</strong></td>
+                            <td>6% of pensionable pay</td>
+                            <td>KES 1,080/month</td>
+                          </tr>
+                          <tr class="table-warning">
+                            <td><strong>Total</strong></td>
+                            <td>12%</td>
+                            <td>KES 2,160/month</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      
+                      <h6 class="mt-4 mb-2">Important Details:</h6>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                          <i class="bi bi-check-circle text-success me-2"></i>
+                          <strong>For salaries above KES 18,000:</strong> Maximum contribution of KES 1,080 per month
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-check-circle text-success me-2"></i>
+                          <strong>For salaries below KES 18,000:</strong> 6% of gross salary
+                        </li>
+                        <li class="list-group-item">
+                          <i class="bi bi-check-circle text-success me-2"></i>
+                          NSSF contributions are tax-deductible
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- NHDF Section -->
+                <div class="col-12">
+                  <div class="card border-warning">
+                    <div class="card-header bg-warning text-dark">
+                      <h4 class="mb-0"><i class="bi bi-bank me-2"></i>NHDF - National Housing Development Fund (Housing Levy)</h4>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="text-warning mb-3">What is NHDF?</h5>
+                      <p>The National Housing Development Fund (also known as the Housing Levy) was introduced in 2024 to support affordable housing initiatives in Kenya under the Big Four Agenda.</p>
+                      
+                      <h5 class="text-warning mb-3 mt-4">Contribution Rates</h5>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <table class="table table-bordered">
+                            <thead class="table-warning">
+                              <tr class="text-center">
+                                <th>Contributor</th>
+                                <th>Rate</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Employee</td>
+                                <td>1.5%</td>
+                              </tr>
+                              <tr>
+                                <td>Employer</td>
+                                <td>1.5%</td>
+                              </tr>
+                              <tr class="table-warning">
+                                <td><strong>Total</strong></td>
+                                <td><strong>3%</strong></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="alert alert-warning">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                            <strong>Example:</strong><br>
+                            If gross salary = KES 50,000<br>
+                            Employee contribution = KES 750<br>
+                            Employer contribution = KES 750<br>
+                            Total monthly = KES 1,500
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="alert alert-info mt-3">
+                        <i class="bi bi-info-circle-fill me-2"></i>
+                        <strong>Note:</strong> NHDF contributions are also tax-deductible and reduce your taxable income.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- PAYEE Section -->
+                <div class="col-12">
+                  <div class="card border-success">
+                    <div class="card-header bg-success text-white">
+                      <h4 class="mb-0"><i class="bi bi-receipt me-2"></i>PAYEE - Pay As You Earn (Income Tax)</h4>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="text-success mb-3">What is PAYEE?</h5>
+                      <p>Pay As You Earn (PAYEE) is the direct tax deducted from your salary by your employer on behalf of the Kenya Revenue Authority (KRA). It is a progressive tax system where higher incomes are taxed at higher rates.</p>
+                      
+                      <h5 class="text-success mb-3 mt-4">Tax Bands (Monthly)</h5>
+                      <table class="table table-bordered">
+                        <thead class="table-success">
+                          <tr class="text-center">
+                            <th>Taxable Income (KES)</th>
+                            <th>Tax Rate</th>
+                            <th>Tax Amount (KES)</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>0 - 24,000</td>
+                            <td>10%</td>
+                            <td>Income × 10%</td>
+                          </tr>
+                          <tr>
+                            <td>24,001 - 32,333</td>
+                            <td>25%</td>
+                            <td>2,400 + (Income - 24,000) × 25%</td>
+                          </tr>
+                          <tr>
+                            <td>32,334+</td>
+                            <td>30%</td>
+                            <td>4,483.25 + (Income - 32,333) × 30%</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      
+                      <h5 class="text-success mb-3 mt-4">Personal Relief</h5>
+                      <div class="alert alert-success">
+                        <i class="bi bi-gift-fill me-2"></i>
+                        <strong>KES 2,400 per month</strong> - This is automatically applied to reduce your tax liability.
+                      </div>
+                      
+                      <h5 class="text-success mb-3 mt-4">How Taxable Income is Calculated</h5>
+                      <div class="card bg-light">
+                        <div class="card-body">
+                          <p class="mb-2"><strong>Taxable Income = Gross Salary - Allowable Deductions</strong></p>
+                          <hr>
+                          <p class="mb-1">Where allowable deductions include:</p>
+                          <ul class="mb-0">
+                            <li>NHIF contribution</li>
+                            <li>NSSF contribution</li>
+                            <li>NHDF (Housing Levy) contribution</li>
+                          </ul>
+                        </div>
+                      </div>
+                      
+                      <div class="alert alert-info mt-3">
+                        <i class="bi bi-lightbulb-fill me-2"></i>
+                        <strong>Pro Tip:</strong> If your taxable income after deductions is below KES 24,001, you will pay KES 0 tax after applying personal relief!
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center mt-4">
+               
+              </div>
+            </div>
+            
+            <div class="card-footer text-center text-muted py-3">
+              <small><i class="bi bi-info-circle me-1"></i>Based on Kenyan tax regulations - Updated 2024</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-5 py-4 bg-dark text-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h5><i class="bi bi-calculator-fill me-2"></i>Tax Calculator</h5>
+            <p class="text-white-50 small mb-0">Kenyan Net Pay Calculator based on KRA tax regulations.</p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <p class="mb-1"><i class="bi bi-globe me-2"></i>Kenya Revenue Authority</p>
+            <p class="mb-0 small text-white-50">For official tax information, visit <a href="https://www.kra.go.ke/" target="_blank" rel="noopener noreferrer" class="text-white">kra.go.ke</a></p>
+          </div>
+        </div>
+        <hr class="my-3">
+        <div class="text-center">
+          <p class="mb-0 small text-white-50">&copy; 2026 Tax Calculator. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>
